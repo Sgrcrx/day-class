@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			.calendar {
+				max-width: 600px;
+				padding: 10px;
+				border: solid 1px red;
+			}
+			
+			.table tr th {
+				text-align: center;
+			}
+			caption{
+				width: 100%;
+				display: block;
+			}
+			.todo-list{
+				padding: 0px;
+				margin: 0px;
+				font-size: 12px;
+				text-align: center;
+				list-style: none;
+				background-color: rgba(255,0,0,0.3);
+			}
+			.todo-list li{
+				margin-bottom: 2px;
+			}
+			.selected{
+				background-size: 20px 20px;
+				box-sizing: border-box;
+				background-image: url(img/selected.gif);
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" class="container">
+			<calendar :todos='todos' @select='select'></calendar>
+			
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script src="js/calendar.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var app = new Vue({
+				el: '#app',
+				data: {
+					todos: [{
+						date: '2018-11-30',
+						time: '13:00',
+						something: '数学'
+					}, {
+						date: '2018-11-30',
+						time: '14:00',
+						something: '语文'
+					}, {
+						date: '2018-10-30',
+						time: '9:00',
+						something: '英语'
+					}, {
+						date: '2018-11-28',
+						time: '18:00',
+						something: '物理'
+					}]
+				},
+				methods: {
+					select:function(val){
+						console.log(val);
+					}
+				},
+				created: function() {}
+			});
+		</script>
+	</body>
+
+</html>
+<!--
+	
+	1. 把今天标注出来
+	
+	2. 上一个月、下一个月文字是灰色
+	
+	3. 把日历写成一个组件
+	
+	4. 点击一个日期把年月日传递出来
+	
+	5. 传入一个日期，和时间、事件 显现在制定的日期
+	
+-->

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/font-awesome.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<style type="text/css">
+			.calendar {
+				max-width: 600px;
+				padding: 10px;
+				border: solid 1px red;
+			}
+			
+			.table tr th {
+				text-align: center;
+			}
+			caption{
+				width: 100%;
+				display: block;
+			}
+			.todo-list{
+				padding: 0px;
+				margin: 0px;
+				font-size: 12px;
+				text-align: center;
+				list-style: none;
+				background-color: rgba(255,0,0,0.3);
+			}
+			.todo-list li{
+				margin-bottom: 2px;
+			}
+			.selected{
+				background-size: 20px 20px;
+				box-sizing: border-box;
+				background-image: url(img/selected.gif);
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" class="container">
+
+			<div class="calendar">
+				<caption>
+					<h3 class="text-center">
+					<span class="fa fa-chevron-left pull-left" @click="prevMonth"></span>
+					<span v-text="year"></span>年<span v-text="month+1"></span>月
+					<span class="fa fa-chevron-right pull-right" @click="nextMonth"></span>
+					</h3>
+				</caption>
+				<table class="table table-bordered text-center">
+					<tr>
+						<th>日</th>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+					</tr>
+					<tr v-for="(row,i) in 6">
+						<td v-for="(col,j) in 7" v-text="date[i*7+j].d" :class="{pink:date[i*7+j].y ==year&&date[i*7+j].m==minth&&date[i*7+j].d==day}"></td>
+					</tr>
+
+				</table>
+
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					date: [],
+					year: 0,
+					month: 0,
+					day: 0
+				},
+				methods: {
+					// 根据年月日获取日历
+					getDays: function(y, m, d) {
+						var is_leap = false;
+						if(y % 400 == 0) {
+							is_leap = true;
+						} else if(y % 100 != 0 && y % 4 == 0) {
+							is_leap = true;
+						}
+						var days = [31, is_leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+						// 上一个月需要显示的天数
+						var prev_count = new Date(y + "-" + (m + 1) + "-01").getDay();
+						prev_count = prev_count == 0 ? 7 : prev_count;
+						console.log(days)
+						this.date = [];
+						// 上一个月
+						for(var i = prev_count; i > 0; i--) {
+							var day = {
+								y: y,
+								m: m,
+								d: days[(m - 1 + 12) % 12] - i + 1,
+								current: false,
+							}
+
+							this.date.push(day);
+						}
+
+						// 当前月
+						for(var i = 0; i < days[m]; i++) {
+							var day = {
+								y: y,
+								m: m,
+								d: i + 1,
+								current: true,
+							}
+
+							this.date.push(day);
+						}
+
+						// 下一个月
+						var next_count = 42 - prev_count - days[m];
+						for(var i = 0; i < next_count; i++) {
+							var day = {
+								y: y,
+								m: m,
+								d: i + 1,
+								current: false,
+							}
+
+							this.date.push(day);
+						}
+
+					},
+					// 上一个月
+					prevMonth: function() {
+						this.month = (this.month - 1 + 12) % 12;
+						if(this.month == 11) {
+							this.year -= 1;
+						}
+						this.getDays(this.year, this.month, this.day);
+					},
+					// 下一个月
+					nextMonth: function() {
+						this.month = (this.month + 1) % 12;
+						if(this.month == 0) {
+							this.year += 1;
+						}
+						this.getDays(this.year, this.month, this.day);
+					}
+				},
+				created: function() {
+					var now = new Date();
+					this.year = now.getFullYear();
+					this.month = now.getMonth();
+					this.day = now.getDate();
+
+					this.getDays(this.year, this.month, this.day);
+				}
+			});
+		</script>
+	</body>
+
+</html>
+<!--
+	
+	1. 把今天标注出来
+	
+	2. 上一个月、下一个月文字是灰色
+	
+	3. 把日历写成一个组件
+	
+	4. 点击一个日期把年月日传递出来
+	
+	5. 传入一个日期，和时间、事件 显现在制定的日期
+	
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<style type="text/css">
+			body{
+				margin: 0px;
+				padding: 0px;
+			}
+			table{
+				/*margin: 50px auto;*/
+			}
+			tr>th,tr>td{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--start-->
+			<table class="table table-bordered">
+				<tr>
+					<th></th>
+					<th>一</th>
+					<th>二</th>
+					<th>三</th>
+					<th>四</th>
+					<th>五</th>
+					<th>六</th>
+					<th>日</th>
+				</tr v-for='(row,i) in 8'>
+					<td v-for="(col,j) in 8">
+						<span>1</span>
+					</td>
+				<tr>
+				</tr>
+			</table>
+			<!--end-->
+		</div>
+		<!--js-->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var app = new Vue({
+				el:'#app',
+				data:{},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<title></title>
+	</head>
+	<body>
+		<div class='calendar'>\
+				<caption>\
+					<h3 class='text-center'>\
+					<span class='fa fa-chevron-left pull-left' @click='prevMonth'></span>\
+					<span v-text='year'></span>年<span v-text='month+1'></span>月\
+					<span class='fa fa-chevron-right pull-right' @click='nextMonth'></span>\
+					</h3>\
+				</caption>\
+				<table class='table table-bordered text-center'>\
+					<tr>\
+						<th>日</th>\
+						<th>一</th>\
+						<th>二</th>\
+						<th>三</th>\
+						<th>四</th>\
+						<th>五</th>\
+						<th>六</th>\
+					</tr>\
+					<tr v-for='(row,i) in 6'>\
+						<td v-for='(col,j) in 7' v-text='date[i*7+j].d' :class="{danger:date[i*7+j].y==year&&date[i*7+j].m==month&&date[i*7+j].d==day,"text-muted":!date[i*7+j].current}'></td>\
+					</tr>\
+				</table>\
+			</div>
+	</body>
+</html>

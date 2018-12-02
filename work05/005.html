@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			table {
+				margin: 50px auto;
+			}
+			
+			caption {
+				text-align: center;
+				font-size: 20px;
+				color: #000;
+				font-weight: bold;
+				margin-bottom: 8px;
+			}
+			
+			tr>th,
+			tr>td {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<!--start-->
+			<tables></tables>
+			<!--end-->
+		</div>
+		<!--js-->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/005.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					className: ['第一节','英语','语文','数学','数学','英语','语文','第二节','语文','英语','语文','政治','语文','化学','第三节','数学','数学','语文','地理','生物','历史','第四节','体育','物理','英语','物理','电脑','美术'],
+					classNames: ['第五节','英语','语文','数学','数学','英语','','第六节','数学','数学','语文','地理','生物','','第七节','语文','英语','语文','政治','语文','','第八节','英语','生物','化学','数学','物理','']
+				},
+				methods: {
+
+				},
+
+			});
+		</script>
+	</body>
+
+</html>
