@@ -1,0 +1,40 @@
+* {
+	margin: 0rem;
+	padding: 0rem;
+}
+
+html {
+	font-size: calc(100vw/7.5);
+}
+
+.left {
+	float: left;
+}
+
+ul li {
+	list-style: none;
+}
+
+.flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.flex-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+body {
+	margin: 0rem auto;
+}

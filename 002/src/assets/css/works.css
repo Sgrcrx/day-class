@@ -1,0 +1,245 @@
+
+/*中间*/
+
+ul {
+	box-sizing: border-box;
+	/*background-color: chartreuse;*/
+}
+
+ul:first-of-type {
+	margin-top: 1.4rem;
+}
+
+ul li {
+	box-sizing: border-box;
+	padding: 0rem 0.25rem;
+}
+
+
+
+.left {
+	width: 0.4rem;
+	height: auto;
+	box-sizing: border-box;
+	position: relative;
+	/*background-color: salmon;*/
+	
+}
+
+/*right*/
+
+.right {
+	box-shadow: 0rem 0.1rem 0.3rem #eee;
+	/*	background-color: maroon;*/
+}
+
+.right .content {
+	margin: 0.4rem 0rem 0.15rem;
+}
+
+.right .content .inner {
+	box-sizing: border-box;
+	padding: 0rem 0.2rem;
+}
+
+.image {
+	width: 1.5rem;
+	height: 1.5rem;
+	box-sizing: border-box;
+	display: inline-block;
+	/*background-color: blue;*/
+}
+
+.image img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+
+/*text*/
+
+.text {
+	box-sizing: border-box;
+	/*background-color: violet;*/
+}
+
+.text h4 {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	height: 3em;
+	width: 4.2rem;
+	font-size: 0.25rem;
+	color: black;
+	font-weight: normal;
+}
+
+.text h5 {
+	font-size: 0.22rem;
+	color: #666;
+	text-align: left;
+	font-weight: normal;
+}
+
+.text p {
+	font-size: 0.1rem;
+	color: #D67F8D;
+	text-align: left;
+	margin: 0.1rem 0rem;
+}
+
+.text p .bai {
+	border: 0.01rem solid #E19EAD;
+	border-radius: 0.2rem;
+	box-sizing: border-box;
+	
+}
+
+
+/*bot*/
+
+.bot {
+	margin-left: -1.8rem;
+	line-height: 0.4rem;
+	/*	background-color: salmon;*/
+}
+
+.money {
+	font-size: 0.2rem;
+	color: #F62F33;
+	text-align: left;
+	/*background-color: khaki;*/
+}
+
+.money #num {
+	font-weight: bold;
+	font-size: 0.3rem;
+}
+
+.choose {
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 0.3rem;
+	position: relative;
+	cursor: pointer;
+	/*background-color: darkorange;*/
+}
+
+.choose #minus {
+	position: absolute;
+	right: 1.6rem;
+}
+
+#minus,
+#num1 {
+	font-size: 0.5rem;
+}
+
+.choose #num1 {
+	position: absolute;
+	right: 0.7rem;
+	width: 0.6rem;
+	height: 100%;
+	font-weight: normal;
+	text-align: center;
+	background-color: #F7F7F7;
+}
+
+.choose #add {
+	position: absolute;
+	right: 0rem;
+	/*background-color: saddlebrown;*/
+}
+
+
+/*下拉*/
+
+.crx {
+	height: 14rem;
+}
+
+
+/*结算*/
+
+.jie {
+	position: relative;
+	padding: 0rem 0.25rem;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+	line-height: 1rem;
+	position: fixed;
+	bottom: 1rem;
+	width: 100%;
+	height: 1rem;
+	box-shadow: 0rem 0rem 0.3rem #ddd;
+	/*background-color: white;*/
+}
+
+.check-box {
+	width: 0.3rem;
+	height: 0.3rem;
+	background-image: url(/img/chooses.png);
+	background-size: contain;
+	margin-top: 1.25rem;
+	position: relative;
+	right: 0.1rem;
+}
+
+.check-box.selected {
+	background-image: url(/img/ok.png);
+}
+
+#check {
+	position: relative;
+	top: 0.12rem;
+	left: -0.1rem;
+	/*background-color: lawngreen;*/
+}
+
+#ch {
+	position: relative;
+	left: -0.21rem;
+	margin-left: 0.2rem;
+	/*background-color: saddlebrown;*/
+}
+
+.jie .all {
+	/*background-color: red;*/
+}
+
+.jie .all img {
+	width: 0.3rem;
+	height: 0.3rem;
+}
+
+.jie .he {
+	position: absolute;
+	left: 1.6rem;
+	width: 3.5rem;
+	font-weight: bold;
+	padding-left: -1rem;
+	/*background-color: blue;*/
+}
+
+.jie .he #yu {}
+
+.jie .he #jiao {
+	/*background-color: aquamarine;*/
+}
+
+.jie .go {
+	margin-left: 1rem;
+	text-align: center;
+	position: absolute;
+	width: 2.4rem;
+	right: 0rem;
+	color: #F8ECEB;
+	background-color: #FB321E;
+}
+
+
